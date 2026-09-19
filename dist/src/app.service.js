@@ -51,7 +51,8 @@ let AppService = class AppService {
                 source: "nest",
             });
         }
-        return document;
+        const externalResponse = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+        return { document, external: await externalResponse.json() };
     }
 };
 AppService = __decorate([

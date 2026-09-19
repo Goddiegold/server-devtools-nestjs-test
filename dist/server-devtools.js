@@ -6,10 +6,16 @@ if (!encryptionKey) {
 }
 export const devtools = new ServerDevTools({
     auth: {
-        username: "admin", password: "12345678",
+        username: "admin",
+        password: "12345678",
     },
     encryption: {
         key: encryptionKey,
+        fields: ["password",
+            "accessToken",
+            "refreshToken",
+            "authorization",
+            "cookie",]
     },
     getCurrentUser: (req) => {
         const user = req.user;

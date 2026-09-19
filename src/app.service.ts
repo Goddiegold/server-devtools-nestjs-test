@@ -57,6 +57,7 @@ export class AppService {
       });
     }
 
-    return document;
+    const externalResponse = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    return { document, external: await externalResponse.json() };
   }
 }
