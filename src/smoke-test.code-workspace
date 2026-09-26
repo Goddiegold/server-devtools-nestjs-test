@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../server-devtools-express-test"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../server-devtools-install-test"
+		},
+		{
+			"path": "../../server-devtools-install-test-v2"
+		}
+	]
+}

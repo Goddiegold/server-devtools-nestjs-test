@@ -6,15 +6,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Injectable } from "@nestjs/common";
 import mongoose from "mongoose";
+import mysql from "mysql2/promise";
+import { Pool } from "pg";
 const mongoUri = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     source: { type: String, required: true },
 }, { collection: "users", timestamps: false });
 const UserModel = mongoose.model("NestSmokeUser", userSchema);
+const postgresPool = new Pool({
+    connectionString: "postgresql://mac@localhost:5432/server_devtools_test",
+});
+const mysqlPool = mysql.createPool({
+    host: "localhost",
+    port: 3306,
+    user: "devtools",
+    password: "devtools",
+    database: "server_devtools_test",
+});
 let AppService = class AppService {
     hello() {
         return { message: "Hello from NestJS" };
+    }
+    users() {
+        return [{ id: "user-123", email: "smoke@example.com", name: "Smoke User" }];
+    }
+    async postgresUsers() {
+        const result = await postgresPool.query("SELECT * FROM users");
+        return result.rows;
+    }
+    async mysqlUsers() {
+        const [rows] = await mysqlPool.query("SELECT * FROM users");
+        return rows;
     }
     async slow() {
         await new Promise((resolve) => setTimeout(resolve, 500));

@@ -21,6 +21,15 @@ let AppController = class AppController {
     hello() {
         return this.service.hello();
     }
+    users() {
+        return this.service.users();
+    }
+    postgresUsers() {
+        return this.service.postgresUsers();
+    }
+    mysqlUsers() {
+        return this.service.mysqlUsers();
+    }
     createUser(body) {
         return body;
     }
@@ -49,6 +58,24 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "hello", null);
+__decorate([
+    Get("users"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "users", null);
+__decorate([
+    Get("postgres-users"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "postgresUsers", null);
+__decorate([
+    Get("mysql-users"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "mysqlUsers", null);
 __decorate([
     Post("users"),
     __param(0, Body()),

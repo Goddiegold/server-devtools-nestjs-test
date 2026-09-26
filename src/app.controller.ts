@@ -12,6 +12,21 @@ export class AppController {
     return this.service.hello();
   }
 
+  @Get("users")
+  users() {
+    return this.service.users();
+  }
+
+  @Get("postgres-users")
+  postgresUsers() {
+    return this.service.postgresUsers();
+  }
+
+  @Get("mysql-users")
+  mysqlUsers() {
+    return this.service.mysqlUsers();
+  }
+
   @Post("users")
   createUser(@Body() body: unknown) {
     return body;
