@@ -15,6 +15,7 @@ declare global {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableShutdownHooks();
   app.useGlobalInterceptors(new ServerDevToolsNestInterceptor());
   app.use((req: IncomingMessage, _res: ServerResponse, next: () => void) => {
     (req as RequestWithUser).user = {

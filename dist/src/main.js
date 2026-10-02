@@ -4,6 +4,7 @@ import { ServerDevToolsNestInterceptor } from "server-devtools/nestjs";
 import { AppModule } from "./app.module.js";
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
+    app.enableShutdownHooks();
     app.useGlobalInterceptors(new ServerDevToolsNestInterceptor());
     app.use((req, _res, next) => {
         req.user = {
