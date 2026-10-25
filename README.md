@@ -36,6 +36,13 @@ Install dependencies:
 npm install
 ```
 
+This smoke app uses the published npm package (`server-devtools@0.1.6`). To
+refresh the exact registry version used by the smoke test:
+
+```sh
+npm install --save-exact server-devtools@0.1.6
+```
+
 ## Run
 
 Build and run the compiled application with the ServerDevTools preload:
@@ -44,6 +51,9 @@ Build and run the compiled application with the ServerDevTools preload:
 npm run build
 npm start
 ```
+
+The preload starts ServerDevTools before the compiled NestJS application
+imports its instrumented modules.
 
 Development watch mode:
 

@@ -19,7 +19,7 @@
     "pg": "^8.23.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
-    "server-devtools": "file:../server-devtool/server-devtools-0.1.4.tgz"
+    "server-devtools": "0.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^12.0.3",
