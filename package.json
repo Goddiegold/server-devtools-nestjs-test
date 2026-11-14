@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --import ./dist/server-devtools.js ./dist/src/main.js",
     "build": "tsc --outDir dist",
-    "start:dev": "NODE_OPTIONS='--import ./server-devtools.js' nest start --watch"
+    "start:dev": "NODE_OPTIONS='--import ./server-devtools.js' nest start --watch",
+    "test": "node --import tsx --test tests/**/*.test.ts"
   },
   "dependencies": {
     "@nestjs/common": "^12.0.3",
@@ -19,7 +20,7 @@
     "pg": "^8.23.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
-    "server-devtools": "0.1.6"
+    "server-devtools": "^0.1.8"
   },
   "devDependencies": {
     "@nestjs/cli": "^12.0.3",
