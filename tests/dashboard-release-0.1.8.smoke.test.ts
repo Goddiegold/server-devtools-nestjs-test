@@ -105,11 +105,11 @@ function countSessionRows(where = ""): number {
   return row.count;
 }
 
-test("installed server-devtools is 0.1.10", () => {
+test("installed server-devtools is 0.1.11", () => {
   const pkg = JSON.parse(
     readFileSync(join(packageInstallRoot, "package.json"), "utf8"),
   ) as { version: string };
-  assert.equal(pkg.version, "0.1.10");
+  assert.equal(pkg.version, "0.1.11");
 });
 
 test("nestjs export provides ServerDevToolsNestInterceptor", () => {
